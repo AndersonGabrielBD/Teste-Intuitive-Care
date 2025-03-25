@@ -5,14 +5,16 @@ import os
 import pdfplumber
 from warnings import filterwarnings
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 filterwarnings('ignore')
 
-
+#
 EXPECTED_COLUMNS = [
     'Procedimento', 'RN (alteração)', 'VIGÊNCIA', "OD", "AMB", 
     "HCO", "HSO", "REF", "PAC", 'DUT', 'SUBGRUPO', 'GRUPO', 'CAPITULO'
 ]
+
 REPLACEMENTS = {
     '\u2013': '-',  
     '\u2014': '-', 
@@ -105,30 +107,35 @@ def save_to_output(df, csv_filename, zip_filename):
         os.remove(csv_filename)
         return True
     except Exception as e:
-        print(f"Error saving output: {str(e)}")
+        print(f"Erro ao salvar resultado: {str(e)}")
         return False
 
 def main():
-    pdf_path = "../Web-scraping/output/ans_pdfs_turbo/Anexo_I_Rol_2021RN_465.2021_RN627L.2024.pdf"
-    csv_filename = "Teste_Anderson.csv"
-    zip_filename = "Teste_AndersonGabriel.zip"
+    current_dir = Path(__file__).parent
+    pdf_path = current_dir.parent / "Web-Scraping" / "output" / "ans_pdfs" / "Anexo_I_Rol_2021RN_465.2021_RN627L.2024.pdf"
     
-    dfs = extract_with_tabula(pdf_path)
+
+    csv_filename = "Teste_Anderson.csv"
+    zip_filename = "./Transformacao-dados/output/Teste_AndersonGabriel.zip"
+    
+    dfs = extract_with_tabula(str(pdf_path))  
     df = pd.concat(dfs, ignore_index=True) if dfs and len(dfs) > 1 else (dfs[0] if dfs else None)
     
+
     if df is None or df.empty:
-        print("Tabula failed, trying pdfplumber...")
-        table_data = extract_with_pdfplumber(pdf_path)
+        print("Tabula falhou, tentando pdfplumber...")
+        table_data = extract_with_pdfplumber(str(pdf_path))
         df = pd.DataFrame(table_data) if table_data else None
     
     if df is not None:
         processed_df = process_dataframe(df)
         if processed_df is not None and not processed_df.empty:
             if save_to_output(processed_df, csv_filename, zip_filename):
-                print(f"Successfully created {zip_filename}")
+                print(f"Arquivo {zip_filename} criado com sucesso!")
+                print(f"Localização: {Path(zip_filename).absolute()}")
                 return
     
-    print("Failed to extract tables from PDF.")
+    print("Falha ao extrair tabelas do PDF.")
 
 if __name__ == "__main__":
     main()
