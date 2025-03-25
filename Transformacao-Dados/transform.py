@@ -114,9 +114,8 @@ def main():
     current_dir = Path(__file__).parent
     pdf_path = current_dir.parent / "Web-Scraping" / "output" / "ans_pdfs" / "Anexo_I_Rol_2021RN_465.2021_RN627L.2024.pdf"
     
-
     csv_filename = "Teste_Anderson.csv"
-    zip_filename = "./Transformacao-dados/output/Teste_AndersonGabriel.zip"
+    zip_filename = current_dir.parent / "Transformacao-Dados" / "output" / "Teste_AndersonGabriel.zip"
     
     dfs = extract_with_tabula(str(pdf_path))  
     df = pd.concat(dfs, ignore_index=True) if dfs and len(dfs) > 1 else (dfs[0] if dfs else None)

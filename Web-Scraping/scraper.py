@@ -5,13 +5,21 @@ import zipfile
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from tqdm.asyncio import tqdm_asyncio
+from pathlib import Path  
+
 
 class ANSDownloader:
     
     def __init__(self):
         self.base_url = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos"
-        self.download_dir = "./Web-scraping/output/ans_pdfs"
-        self.zip_name = "./Web-scraping/output/ans_pdfs.zip"
+        current_dir = Path(__file__).parent
+
+        self.base_dir = current_dir.parent  # Sobe um nível (pasta "testepy")
+
+        # Caminhos idênticos aos que já funcionam
+        self.download_dir = self.base_dir / "Web-Scraping" / "output" / "ans_pdfs"
+        self.zip_name = self.base_dir / "Web-Scraping" / "output" / "ans_pdfs.zip"
+        
         self.timeout = aiohttp.ClientTimeout(total=120)  # 2 minutos timeout
         self.chunk_size = 65536  # 64KB chunks
         self.max_connections = 20  # Conexões simultâneas
