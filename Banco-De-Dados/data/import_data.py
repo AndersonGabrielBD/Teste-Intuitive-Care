@@ -83,8 +83,7 @@ def setup_database():
             """)
             
             cursor.execute("""
-             DROP TABLE IF EXISTS demonstracoes_contabeis;
-             CREATE TABLE demonstracoes_contabeis (
+             CREATE TABLE IF NOT EXISTS demonstracoes_contabeis (
              id SERIAL PRIMARY KEY,
              registro_ans VARCHAR(20),
              competencia DATE,
