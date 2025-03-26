@@ -11,11 +11,11 @@ Tecnologias: Python (aiohttp, BeautifulSoup)
 
 Funcionalidades:
 
-Download de PDFs
+✔ Download de PDFs
 
-Compactação em arquivo ZIP
+✔ Compactação em arquivo ZIP
 
-Tratamento de erros robusto
+✔ Tratamento de erros robusto
 
 2. Teste de Transformação de Dados
 Objetivo: Conversão de dados estruturados em PDF para CSV
@@ -23,11 +23,11 @@ Objetivo: Conversão de dados estruturados em PDF para CSV
 
 Funcionalidades:
 
-Extração de tabelas complexas
+✔ Extração de tabelas complexas
 
-Padronização de colunas
+✔ Padronização de colunas
 
-Substituição de abreviações
+✔ Substituição de abreviações
 
 3. Teste de Banco de Dados
 Objetivo: Criação de base analítica para consultas estratégicas
@@ -36,11 +36,11 @@ Tecnologias: PostgreSQL, Python (psycopg2)
 
 Funcionalidades:
 
-ETL completo
+✔ ETL completo
 
-Consultas otimizadas
+✔ Consultas otimizadas
 
-Análise de despesas médicas
+✔ Análise de despesas médicas
 
 4. Teste de API
 Objetivo: Disponibilizar dados via interface web
@@ -49,45 +49,52 @@ Tecnologias: Flask, Vue.js
 
 Funcionalidades:
 
-Busca textual
+✔ Busca textual
 
-Paginação de resultados
+✔ Paginação de resultados
 
-Integração frontend-backend
+✔ Integração frontend-backend
 
-🛠️ Como Executar
+🛠️ Como Executar:
+
 Pré-requisitos
-Python 3.10+
 
-PostgreSQL 12+
+✔ Python 3.10+
 
-Node.js 16+ (para o frontend)
+✔ PostgreSQL 12+
+
+✔ Node.js 16+ (para o frontend)
 
 Instalação
 
 # Clonar repositório
-git clone https://github.com/seu-usuario/ans-testes.git
-cd ans-testes
+git clone https://github.com/AndersonGabrielBD/Teste-Intuitive-Care.git
+cd Teste-Intuitive-Care
 
 # Instalar dependências
 Siga todos os passos dos readmes deixados na pasta de cada teste
-
 Cada teste possui seu próprio README com instruções específicas:
 
-Web Scraping
+-Web Scraping
 
-Transformação de Dados
+-Transformação de Dados
 
-Banco de Dados
+-Banco de Dados
 
-API
+-API
 
 📊 Diferenciais Implementados
+
 ✔ Arquitetura modular - Código organizado por responsabilidades
+
 ✔ Controle de versão eficiente 
+
 ✔ Documentação detalhada - READMEs específicos para cada módulo
+
 ✔ Tratamento de erros robusto - Logs e fallbacks para todos os cenários críticos
+
 ✔ Otimizações de performance - Processamento em chunks e queries indexadas
+
 
 
 
