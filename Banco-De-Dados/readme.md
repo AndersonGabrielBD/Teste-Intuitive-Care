@@ -10,6 +10,7 @@ Este sistema realiza a importação e análise de dados da Agência Nacional de 
 -Análises estratégicas sobre despesas médicas
 
 Pré-requisitos
+
 -PostgreSQL 10+ instalado e rodando
 
 -Python 3.10+
@@ -19,7 +20,13 @@ Para executar:
 Certifique que as bibliotecas python estão instaladas na pasta raiz do projeto:
 pip install pandas psycopg2-binary
 
-no terminal dentro da pasta /Banco-De_Dados/data digite: python import_data.py
+Modifique as informações da conexão do banco no código para as informações do seu banco local. 
+
+OBS: É preciso mudar na conexão do começo e na do fim do arquivo "import_dara.py"
+
+no terminal dentro do diretorio ./Banco_De_Dados/data:
+
+Execute: python import_data.py
 
 
 Estrutura do Código:
