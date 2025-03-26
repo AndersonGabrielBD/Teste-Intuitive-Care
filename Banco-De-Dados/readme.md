@@ -22,7 +22,7 @@ pip install pandas psycopg2-binary
 
 Modifique as informações da conexão do banco no código para as informações do seu banco local. 
 
-OBS: É preciso mudar na conexão do começo e na do fim do arquivo "import_dara.py"
+OBS: É preciso mudar na conexão do começo e na do fim do arquivo "import_data.py"
 
 no terminal dentro do diretorio ./Banco_De_Dados/data:
 
