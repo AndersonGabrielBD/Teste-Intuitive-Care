@@ -69,6 +69,7 @@ Instalação
 
 # Clonar repositório
 git clone https://github.com/AndersonGabrielBD/Teste-Intuitive-Care.git
+
 cd Teste-Intuitive-Care
 
 # Instalar dependências
