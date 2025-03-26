@@ -14,7 +14,7 @@ Pré-requisitos
 
 -Python 3.10+
 
-Bibliotecas Python:
+Certifique que as bibliotecas python estão instaladas na pasta raiz do projeto:
 pip install pandas psycopg2-binary
 
 Estrutura do Código:
