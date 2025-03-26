@@ -14,8 +14,13 @@ Pré-requisitos
 
 -Python 3.10+
 
+Para executar: 
+
 Certifique que as bibliotecas python estão instaladas na pasta raiz do projeto:
 pip install pandas psycopg2-binary
+
+no terminal dentro da pasta /Banco-De_Dados/data digite: python import_data.py
+
 
 Estrutura do Código:
 1. Configuração Inicial
